@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import DisplayPlatformStats from '.components/DisplayPlatformStats';
+import DisplayPlatformStats from './components/DisplayPlatformStats';
 
 function App() {
 
