@@ -15,9 +15,10 @@ function App() {
     try{
       debugger;
       const response = await axios.get('https://localhost:7260/api/games/');
-      console.log(response.data)
+      
       setVideoGames(response.data);
       } catch(ex){
+        // eslint-disable-next-line no-template-curly-in-string
         console.log('ERROR in getVideoGames EXCEPTION: ${ex}')
       }
   }

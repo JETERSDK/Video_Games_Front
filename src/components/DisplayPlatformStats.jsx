@@ -1,44 +1,49 @@
 import { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 
-export const data = [
-    ["City", "2010 Population", "2000 Population"],
-    ["New York City, NY", 8175000, 8008000],
-    ["Los Angeles, CA", 3792000, 3694000],
-    ["Chicago, IL", 2695000, 2896000],
-    ["Houston, TX", 2099000, 1953000],
-    ["Philadelphia, PA", 1526000, 1517000],
-  ];
-  
-  export const options = {
-    title: "Population of Largest U.S. Cities",
-    chartArea: { width: "50%" },
-    hAxis: {
-      title: "Total Population",
-      minValue: 0,
-    },
-    vAxis: {
-      title: "City",
-    },
-  };
 
-  const DisplayPlatformStats = ({videoGames}) => {
+
+
+
+const DisplayPlatformStats = ({videoGames}) => {
+
+
+    function generateDataFormChart() {
+
+      console.log(videoGames);
+
+      let filteredGames = videoGames.filter(game => game.year > 2013);
+
+      console.log('Filtered Games', filteredGames);
+      const data = [
+        ["Platform", "Sales", { role: "style" }],
+        ["PS3", 8.94, "silver"], 
+        ["Silver", 10.49, "silver"], 
+        ["Gold", 19.3, "silver"],
+        ["Platinum", 21.45, "silver"], 
+      ];
+
+      return data;
+    }
 
     return (
-        <div>
-            <h1>Platform Global Sales in Millions</h1>
-            <Chart
-          chartType="BarChart"
-          width="100%"
-          height="400px"
-          data={data}
-          options={options}
-        />
-        </div>
-    )
-  }
 
-  export default DisplayPlatformStats;
+      <div>
+        <h1>Platform By Global Sales in Millions</h1>
+        <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataFormChart()} />
+      </div>
+    );
+
+        
+}
+
+export default DisplayPlatformStats;
+        
+        
+        
+        
+        
+        
 
 
 
