@@ -15,13 +15,38 @@ const DisplayPlatformStats = ({videoGames}) => {
       let filteredGames = videoGames.filter(game => game.year > 2013);
 
       console.log('Filtered Games', filteredGames);
+
+      let platforms = filteredGames.map(game => {
+        return game.platform
+      });
+
+      console.log('Platforms', platforms);
+
+      let distinctPlatforms = [...new Set(platforms)]
+
+      console.log('Distinct Platforms', distinctPlatforms);
+
+      let platformArrays = distinctPlatforms.map(platform => {
+        return [platform, 10, "silver"]
+      });
+
+      console.log('Platform Arrays', platformArrays);
       const data = [
         ["Platform", "Sales", { role: "style" }],
-        ["PS3", 8.94, "silver"], 
-        ["Silver", 10.49, "silver"], 
-        ["Gold", 19.3, "silver"],
-        ["Platinum", 21.45, "silver"], 
+        ["PS3", 10, "silver"], 
+        ["X360", 10, "silver"], 
+        ["PS4", 10, "silver"],
+        ["3DS", 10, "silver"],
+        ["XOne", 10, "silver"],
+        ["WiiU", 10, "silver"],
+        ["Wii", 10, "silver"],
+        ["PC", 10, "silver"],
+        ["PSV", 10, "silver"],
+        ["DS", 10, "silver"],
+        ["PSP", 10, "silver"],
       ];
+
+      console.log('Data', data);
 
       return data;
     }
