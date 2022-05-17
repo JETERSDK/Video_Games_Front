@@ -27,6 +27,12 @@ const DisplayPlatformStats = ({videoGames}) => {
       console.log('Distinct Platforms', distinctPlatforms);
 
       let platformArrays = distinctPlatforms.map(platform => {
+
+        let allGamesForPlatform = filteredGames.filter(game => game.platform == platform);
+
+        // now we need to loop through allGamesForPlatform and sum each games global sales
+
+        // once we have the sum of all those games global sales 
         return [platform, 10, "silver"]
       });
 
